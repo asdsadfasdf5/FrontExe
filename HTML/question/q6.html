@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수습 국원 지원 양식</title>
+    <style>
+      #td3{
+        width: 170px;
+      }
+       table, th, td{
+            border : 1px solid #ccc; /* 선 굵기, 일반선, 선색상 */
+            /* border-collapse : collapse; 테이블의 닿는 곳에 1개의 선만 존재 */
+            
+        }
+        th, td{
+            padding : 10px 20px; /* 내부의 글자와 border사이의 간격*/
+        }
+        th{
+          font-size: large;
+          font-weight: bold;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>수습 국원 지원 양식</h1>
+    <table>
+      <!-- <thead> -->
+        <tr>
+          <th rowspan="3">개인정보</th>
+          <th>이름</th>
+          <td id="td3"></td>
+        </tr>
+      <!-- </thead> -->
+      <!-- <tbody> -->
+        <tr>
+          <!-- <th></th> -->
+          <th>학과/학번</th>
+          <td id="td3"></td>
+        </tr>
+        <tr>
+          <!-- <th></th> -->
+          <th>연락처</th>
+          <td id="td3"></td>
+        </tr>
+        <tr>
+          <th>지원 분야</th>
+          <td colspan="2" id="td3"></td>
+          <!-- <td></td> -->
+        </tr>
+      <!-- </tbody> -->
+    </table>
+  </body>
+</html>
