@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 소개 페이지</title>
     <style>
-        table, th, td{
-            border : 1px solid #ccc; /* 선 굵기, 일반선, 선색상 */
-            border-collapse : collapse; /*테이블의 닿는 곳에 1개의 선만 존재*/
-            
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+            /* 선굵기, 일반선, 선색상*/
+            border-collapse: collapse;
+            /*  테이블의 닿는 곳에 1개의 선만 존재*/
         }
-        th, td{
-            padding : 10px 20px; /* 내부의 글자와 border사이의 간격*/
+
+        th,
+        td {
+            padding: 10px 20px;
+            /* 내부의 글자와 border사이의 간격*/
         }
     </style>
 </head>
+
 <body>
-    <!-- <ol></ol> : order list , 순서있는 리스트 -->
     <h2>블루베리 샐러드 레시피</h2>
-    
     <p><b>재료: </b>블루베리2줌, 양상추 3장, 작은 상추 1줌, 양배추 2장, 당근채 약간, 적양파 1/4개, 랍스타스타일의 게살1개</p>
     <p><b>드레싱: </b>올리브유 1큰술, 레몬즙 2큰술, 꿀 1큰술, 소금 약간</p>
     <ol type="a">
@@ -29,13 +35,14 @@
         <li>킹크랩 맛의 게살은 어슷썰어요.</li>
         <li>완성 접시에 양상추, 상추, 양배추, 적양파, 당근 등을 켜켜로 보기좋게 담아요.</li>
     </ol>
-    <img src="https://recipe1.ezmember.co.kr/cache/recipe/2022/06/23/e77f6ec12aeff19443adabf6eef7d7661.jpg" width="250px">
+    <img src="https://mblogthumb-phinf.pstatic.net/MjAyMTAyMTVfMjc2/MDAxNjEzMzY5MjgwMTQ3.tvx8BM9yTOmEEBoUkaQm1zhDamNfdxT-XyisQkSYSg4g.8Tz4kox3X9MZ4q-0DCYOAPUKBwxjhM23L5QgyPugUN8g.JPEG.bearchew/SE-763e48bd-a54b-4b54-a674-f5070b98fc43.jpg?type=w420"
+        alt="블루베리 샐러드">
     <hr>
     <h2>상품 구성</h2>
     <table>
         <caption>선물용과 가정용 상품 구성</caption>
-        <thead> <!-- 이렇게 구성하면 CSS에서 테이블 제목에 스타일, 테이블내용에 스타일을 따로 지정할수있어서 사용한다.
-            적용해도 구조적으로 변경되는 것은 아니다.-->
+        <thead>
+            <!-- 1번째 행 -->
             <tr>
                 <th>용도</th>
                 <th>중량</th>
@@ -44,30 +51,34 @@
             </tr>
         </thead>
         <tbody>
+            <!-- 2번째 행 -->
             <tr>
                 <td rowspan="2">선물용</td>
-                <td>3Kg</td>
+                <td>3kg</td>
                 <td>11~16과</td>
                 <td>35,000원</td>
             </tr>
+            <!-- 3번째 행 -->
             <tr>
-                <td>5Kg</td>
-                <td>18~16과</td>
+                <td>5kg</td>
+                <td>18~26과</td>
                 <td>52,000원</td>
             </tr>
+            <!-- 4번째 행 -->
             <tr>
                 <td rowspan="2">가정용</td>
-                <td>3Kg</td>
+                <td>3kg</td>
                 <td>11~16과</td>
                 <td>30,000원</td>
             </tr>
+            <!-- 5번째 행 -->
             <tr>
-                <!-- <td>가정용</td> -->
-                <td>5Kg</td>
+                <td>5kg</td>
                 <td>18~26과</td>
                 <td>47,000원</td>
             </tr>
         </tbody>
     </table>
 </body>
+
 </html>
