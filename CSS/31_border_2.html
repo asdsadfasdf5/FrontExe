@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        text-align: center;
+        font-size: 20px;
+        line-height: 100px;
+        border-width: 5px;
+        border-style: solid;
+      }
+      #box1 {
+        border-width: 2px; /*4방향*/
+      }
+      #box2 {
+        border-width: thick thin; /** 위 아래 - thick ,  왼쪽 오른쪽 - thin */
+      }
+      #box3 {
+        border-width: thick thin thin; /* top - thick right-thin bottom-thin left-thin */
+        
+      }
+      #box4 {
+        border-width: 10px 5px 5px 10px; /* 위 오른쪽 아래 왼쪽 -> 시계방향 */
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1">box1 상자</div>
+    <div id="box2">box2 상자</div>
+    <div id="box3">box3 상자</div>
+    <div id="box4">box4 상자</div>
+  </body>
+</html>
