@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>연습문제 2</title>
+    <style>
+      #container {
+        width: 200px;
+        margin: 30px auto;
+      }
+      img {
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        box-shadow: 5px 5px 30px 2px #000;
+        animation: rotate 10s infinite;
+        /* animation: rotate 10s infinite, rollet 3s infinite alternate; */
+      }
+      @keyframes rotate {
+        from {
+          transform: perspective(120px) rotate(0deg) rotateY(0deg);
+        }
+		50%{
+			transition-property: 10px,7000px;
+			transition-duration: 1s, 1s; /*트랜지션 시간 - 2초, 1초*/
+
+		}
+        to {
+          transform: perspective(1080px) rotateX(-1080deg) rotateY(1080deg);
+        }
+      }
+      @keyframes rollet {
+        from {
+			transition-property: 10000px,10000px;
+			transition-duration: 0.3s, 0.3s; /*트랜지션 시간 - 2초, 1초*/
+        }
+        30% {
+			transform: perspective(1080px) rotateX(-1080deg) rotateY(1080deg);
+
+        }
+        50% {
+			transform: perspective(1080px) rotateX(-1080deg) rotateY(1080deg);
+
+        }
+        70% {
+			transform: perspective(1080px) rotateX(-1080deg) rotateY(1080deg);
+			
+        }
+        to {
+          transform: perspective(1080px) rotateX(-1080deg) rotateY(1080deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <img src="../../images/bear.jpg" alt="곰인형 사진" />
+    </div>
+  </body>
+</html>
