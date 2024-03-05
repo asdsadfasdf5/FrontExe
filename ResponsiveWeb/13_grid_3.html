@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   #wrapper1{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-bottom: 20px;
+    /* 화면을 가득 채우도록 컬럼 자동 늘림 */
+
+   }
+   #wrapper2{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* 컴럼 최소 너비만큼 채워서 표시 */
+   }
+   h1{
+    font-size: 24px;
+   }
+   .items{
+    padding: 15px;
+    background-color: whitesmoke;
+   }
+   .items:nth-child(odd){
+    background-color: antiquewhite;
+   }
+  </style>
+</head>
+<body>
+  <h1>auto-fit일 때</h1>
+  <div id="wrapper1">
+    <div class="items">Java is used to develop mobile apps, web apps, desktop apps, games and much more.</div>
+    <div class="items">Java is used to develop mobile apps, web apps, desktop apps,</div>
+    <div class="items">Java is used to develop mobile apps, web apps,</div>
+    <div class="items">Java is used to develop mobile apps,</div>
+    <div class="items">Java is used to develop.</div>
+  </div>
+
+  <h1>auto-fitl일 때</h1>
+  <div id="wrapper2">
+    <div class="items">Java is used to develop mobile apps, web apps, desktop apps, games and much more.</div>
+    <div class="items">Java is used to develop mobile apps, web apps, desktop apps,</div>
+    <div class="items">Java is used to develop mobile apps, web apps,</div>
+    <div class="items">Java is used to develop mobile apps,</div>
+    <div class="items">Java is used to develop.</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   #wrapper{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 100px;
+   }
+   .items{
+    padding: 10px;
+    background-color: whitesmoke;
+   }
+   .items:nth-child(odd){
+    background-color: antiquewhite;
+   }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div class="items">Java is used to develop mobile apps, web apps, desktop apps, games and much more.</div>
+    <div class="items">Java is used to develop mobile apps, web apps, desktop apps,</div>
+    <div class="items">Java is used to develop mobile apps, web apps,</div>
+    <div class="items">Java is used to develop mobile apps,</div>
+    <div class="items">Java is used to develop.</div>
+  </div>
+</body>
+</html>
