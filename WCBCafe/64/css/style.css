@@ -274,20 +274,21 @@ aside p{
     object-fit:cover;       /*가로,세로 비율에 따라 이미지가 변하지 않고 배율을 유지하고 싶을 때*/
 }
 
-
-/* CONTACT */
+/* CONTACT
+--------------------------------------------------- */
 #contact{
     background-image: url('../../../siteimages/contact-bg.jpg');
     min-height: 100vh;
 }
+
+/* form 양식 */
 form div{
     margin-bottom: 14px;
-
 }
 label{
     font-size: 1.125rem;
     margin-bottom: 10px;
-    display: block;
+    display:block;
 }
 input[type='text'],
 input[type='email'],
@@ -300,55 +301,56 @@ textarea{
 }
 input[type='text'],
 input[type='email']{
-    width: 100%;
-    max-width: 240px;
+    width:100%;
+    max-width:240px;
 }
 textarea{
-    width: 100%;
-    max-width: 480px;
-    height: 6rem;
+    width:100%;
+    max-width:480px;
+    height:6rem;
 }
-input[type="submit"]{
-    border: none;
+input[type='submit']{
+    border:none;
     cursor: pointer;
-    line-height: 1;
+    line-height:1;
 }
 
-/* CONTACT GOOGLE MAP */
+/* CONTACT - CAFE정보와 구글 맵 */
 #location{
     padding: 4% 0;
-
 }
 #location .wrapper{
-    display: flex;
+    display:flex;
     justify-content: space-between;
 }
 .location-info{
-    width: 30%;
+    width:22%;
 }
 .location-info p{
-    padding:12px 10px;
+    padding: 12px 10px;
+}
+.location-map{
+    width:74%;
 }
 
-.location-map{
-    width: 70%;
-}
 /* CONTACT SNS */
 #sns{
-    background: whitesmoke;
-    padding: 4% 0;
-
+    background:#faf7f0;
+    padding:4% 0;
 }
 #sns .wrapper{
-    display: flex;
+    display:flex;
     justify-content: space-between;
 }
 #sns .sub-title{
     margin-bottom: 30px;
 }
 .sns-box{
-    width: 30%;
+    width:30%;
 }
+
+
+
 /* 0~600px사의의 화면일 때 적용 */
 @media (max-width: 600px){
 
@@ -435,27 +437,13 @@ input[type="submit"]{
     }
 
     /* CONTACT */
-    #contact{
+    #contact .page-title{
         margin-top: 40px;
-
     }
-    input[type="text"],
-    input[type="email"],
+
+    input[type='text'],
+    input[type='email'],
     textarea{
-        max-width: 100%;
-    }
-
-    /* CONTACT CAFA 정보와 구글 지도, SNS */
-    #location .wrapper,#sns .wrapper{
-        flex-direction: column;
-
-    }
-    .location-info,
-    .location-map,
-    .sns-box{
-        width: 100%;
-    }
-    .sns-box{
-        margin-bottom: 30px;
+        max-width:100%;
     }
 }
