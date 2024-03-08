@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arrIndex = 99;
+
+        function min(array){
+            for(i=0; i < array.length; i++){
+                if(array[i] < arrIndex  ){
+
+                    arrIndex = array[i];
+                }
+            }
+            return arrIndex;
+        }
+
+
+        function max(array){
+            for(i=0; i < array.length; i++){
+                if(array[i] > arrIndex  ){
+
+                    arrIndex = array[i];
+                }
+            }
+            return arrIndex;
+        }
+
+        const testArray = [52, 273, 99, 2, 22, 4];
+        console.log('최소 값 = '+ min(testArray));
+        console.log('최대 값 = '+ max(testArray));
+    </script>
+</body>
+</html>

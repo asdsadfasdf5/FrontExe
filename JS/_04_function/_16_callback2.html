@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function callThreeTiems(callback){
+            for(i=0;i<3;i++){
+                callback(i);
+            }
+        }
+
+        // function print(i) {
+        //     console.log(`${i}번째 함수 호출`);
+        // }
+            // 익명함수로 callback 호출하기
+        callThreeTiems((i)=>{
+            console.log(`${i}번째 함수 호출 - 익명함수`);
+        });
+        //함수의 파라미터를 통해 다른 함수나 이벤트에 의해 호출되는 것
+    </script>
+</body>
+</html>

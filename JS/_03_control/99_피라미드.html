@@ -41,29 +41,137 @@
 
 
      -->
+     <!-- 
+    <pre><b>
+                         *                                                              
+                        * *                                                              
+                       *****                                                             
+                      *     *                                                             
+                     * *   * *                                                             
+                    ***** *****                                                             
+                   *           *                                                             
+                  * *         * *                                                             
+                 *****       *****                                                             
+                *     *     *     *                                                             
+               * *   * *   * *   * *                                                             
+              ***** ***** ***** *****                                                             
+             *                       *                                                             
+            * *                     * *                                                             
+           *****                   *****                                                             
+          *     *                 *     *                                                             
+         * *   * *               * *   * *                                                             
+        ***** *****             ***** *****                                                             
+       *           *           *           *                                                             
+      * *         * *         * *         * *                                                             
+     *****       *****       *****       *****                                                             
+    *     *     *     *     *     *     *     *                                                             
+   * *   * *   * *   * *   * *   * *   * *   * *                                                             
+  ***** ***** ***** ***** ***** ***** ***** *****                                                             
+
+
+</b></pre>
+ -->
     <script>
-    let star = "*";
-    let bottom = 5;
-    document.write("<p>")
-        for(i=0;i<3;i++){
-            smallStar(star);
-        }
-    document.write("</p>")
-            
+    let pyamidCount = 47;
+    document.write("<pre><b>");
+        
+        // for(ia=0; ia < 2; ia++){
+        //     for(j=0; j < 2;j++){
 
-    function smallStar(star){
-        for(i=1;i<3;i++){
-            document.write(star + "<br>")
-                for(j=0;j<5;j++){
-                    if(j == 2 || j == 5)
-                        document.write(star)
-                    else    
-                        document.write("")
-                
+        //     }
+        //     smallStar(pyamidCount);
+        //     blockStar(pyamidCount)
+        // }
 
+    // for(i=1;i<3;i++){
+    //     document.write(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1) + "<br>");
+    // }
+
+
+        // for(i = 1; i <= 3; i++){
+        //     if(i%2==0){
+        //         document.write(" ".repeat(pyamidCount-i-1) + " *".repeat(i*2-i));
+        //         document.write("<br>");
+        //         continue;
+        //     }
+        //     document.write(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1) + "<br>");
+        // }
+
+
+
+        // for(i=1; i < 9; i++){
+        //     //8줄의 피라미드를 쌓음
+        //     for(j = 1; j <= 3; j++){
+        //         //규칙이 있는 3줄의 피라미드를 쌓음
+        //         if( j%2 == 0 ){
+        //             document.write(" ".repeat(pyamidCount-j-1) + " *".repeat(j*2-j) + "<br>");
+        //             continue;
+        //         }
+        //         document.write(" ".repeat(pyamidCount-j) + "*".repeat(j*2-1) + "<br>");
+        //     }
+        // }
+    document.write("</pre></b>");
+      
+
+
+    // Console.log 
+    
+        for(i = 1; i <= 3; i++){
+            if(i==2){
+                console.log(" ".repeat(pyamidCount-i-1) + " *".repeat(i*2-i));
+                continue;
             }
+            console.log(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1));
+        }
+        for(j=0;j<9;j++){
+            
+    }
+
+    
+
+
+
+
+    // function smallStar(pyamidCount){
+    //     for(i = 1; i <= pyamidCount; i++){
+    //         if(i==2){
+    //             // document.write(" "+"*"+" "+"*"+ "<br>");
+    //             for(j=1;j<5;j++){
+    //                 if(j%2==0)
+    //                     document.write("*");
+    //                 else
+    //                     document.write(" ".repeat(pyamidCount-i));
+    //             }
+    //             document.write("<br>");
+    //             continue;
+    //         }
+    //         document.write(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1) + "<br>");
+    //     }
+    // }
+
+    function smallStar(pyamidCount){
+        for(i = 1; i <= 3; i++){
+            if(i==2){
+                document.write(" ".repeat(pyamidCount-i-1) + " *".repeat(i*2-i));
+                document.write("<br>");
+                continue;
+            }
+            document.write(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1) + "<br>");
         }
     }
+
+    function blockStar(pyamidCount){
+        for(i=3-1; i > 0; i--){
+         document.write(" ".repeat(pyamidCount-i) + " ".repeat(i*2-1)+ "<br>");
+      }
+
+    }
+
+
+
+
+
+    
     </script>
 </body>
 </html>

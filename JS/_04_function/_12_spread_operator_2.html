@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //전개 연산자
+      function funcA(x) {
+        console.log(x);
+      }
+      
+      function funcSpread(...x) {
+        console.log(...x);
+      }
+
+      const array = [1, 2, 3];
+      funcA(array);
+      console.log(" ");
+      funcA("funcA : "+1,2,3);
+      funcSpread("funcSpread : " + array);
+      
+      function maxOrMin(...p) {
+          let _min = p[0];
+          for(const num of p){
+              if(_min > num)
+              _min = num;
+        }
+        return _min;
+    }
+    const array1 = [18, 20, 35,5,11,66,22,111,];
+    
+console.log(maxOrMin(array1));
+console.log(maxOrMin(...array1));
+    </script>
+  </head>
+  <body></body>
+</html>
