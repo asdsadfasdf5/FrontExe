@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre>
+7을 입력하면
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+    </pre>
+  </body>
+  <script>
+    let pyamidCount = parseInt(prompt("pyamid star input gogogogoogo"));
+    // 최대로 입력받은 별의 갯수를 리턴그리고 반복문으로 공백을 넣음
+
+    document.write("<pre>");
+      for(i=1;i<=pyamidCount;i++){
+         document.write(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1) + "<br>");
+         // i는 1, i가 입력한 값과 같거나 보다 클때 i++
+         /* 공백은 입력한숫자-i까지 입력
+            예를 들면 
+            > i=1; 1<=3; 1++ ->  공백을 3-1=2만큼생성 *문자를 1*2-1=1만큼 별 생성 공 백먼저 2생성 후 *하나 생성
+            그 다음은 
+            > i=2; 2<=3; i++ -> 공백을 3-2=1만큼생성  *문자를 2*2-1=3만큼 별 생성 공백 먼저 1생성 후 *3개 생성
+            마지막 반복 
+            > i=3; 3<=3; i++ -> 공백을 3-3=0만큼 생성   *문자를 3*2-1=5만큼 별 생성 공백 먼저 0생성 후 5하나 생성
+         */
+      }
+      for(i=pyamidCount-1; i > 0; i--){
+         document.write(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1)+ "<br>");
+         // i는 입력값, i가 0보다 클때 i를 1씩 감소
+         /* 공백은 입력값-i까지 입력
+         예를 들면 
+         > i = 2; 2>0; i-- -> 공백을 3-2=1만큼생성 *문자를 2*2-1=3만큼 별 생성
+         
+         그 다음은 
+         > i = 1; 1>0; i-- -> 공백을 3-1=2만큼생성  *문자를 1*2-1=1ㅈ만큼 별 생성
+         
+         */
+      }
+
+    document.write("</pre>");
+  </script>
+</html>

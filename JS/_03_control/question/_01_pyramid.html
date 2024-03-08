@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<body>
+      <pre>
+숫자 7을 입력하면
+      *
+     ***
+    *****
+   *******
+  *********
+ ***********
+*************
+      </pre>
+
+
+      <script>
+            let pyamidCount = parseInt(prompt("pyamid star input gogogogoogo"));
+      
+            // 최대로 입력받은 별의 갯수를 리턴그리고 반복문으로 공백을 넣음
+
+            document.write("<pre>")
+            for(i = 1; i <= pyamidCount; i++){
+                  document.write(" ".repeat(pyamidCount-i) + "*".repeat(i*2-1) + "<br>");
+                  /*
+                  i=1 ;입력받은값만큼 1를 ++
+                  공백을 (입력값-1) 만큼 생성 첫줄이면 입력값 -1만큼별을 찍는다. 가운데로 자리 잡기 위해서
+                  별을 (i*2-1)만큼 생성 첫줄이면 1개가 생성
+                  */
+            }
+
+            document.write("</pre>");
+
+      </script>
+</body>
+</html>
+
+

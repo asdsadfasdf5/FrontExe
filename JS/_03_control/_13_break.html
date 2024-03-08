@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        margin: 20px;
+        float: left;
+
+    }
+    table, th{
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+    th,td{padding: 10px 15px;}
+    th{background-color: #eee;}
+    td{background-color: #eee;}
+</style>
+<body>
+    <h1>GuGuDan</h1>
+    <script>
+        for(i=1;i<=9;i++){
+            document.write("<table>");
+            document.write(`<tr><th>${i}-Dan</th></tr>`);
+                for(j=1;j<=9;j++){
+                    document.write(`<tr><th>${i} X ${j} = ${i*j}</th></tr>`);
+                }
+                document.write("</table>");
+            }
+    </script>
+</body>
+</html>
