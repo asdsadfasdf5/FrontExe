@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn{
+        width: 100px;
+        height: 100px;
+        border: 3px solid yellow;
+        background-color: bisque;
+    }
+    .btn:hover{
+        background-color: black;
+        color: white;
+    }
+</style>
+<body>
+    <button class="btn">++</button>
+    <script>
+        // 숫자가 0.1초마다 1씩 증가 버튼을 누르면 타이머가 멈춤
+        
+        document.addEventListener("DOMContentLoaded",()=>{
+            const btnn = document.querySelector(".btn");
+            //반복
+            let count = 0;
+            let btnCount = setInterval(()=>{
+                btnn.textContent = count;
+                count++; 
+            },100);
+            //if click 
+            btnn.addEventListener("click",()=>{
+                clearInterval(btnCount);
+            });
+            
+        });
+    </script>
+</body>
+</html>

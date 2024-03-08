@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .time-div{
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="time-div"></div>
+    <button class="btn">시작</button>
+    <script>
+        // 버튼을 누르면 0.1초마다 1씩 증가 버튼 다시 누르면 타이머 멈춤 다시 누르면 타이머 동작
+        // 그리고 처음에는 버튼에 '시작'표기 타이머 동작시 '멈춤'표기 멈추면 다시 처음으로
+
+
+
+        addEventListener("DOMContentLoaded",()=>{
+        
+            let btnBoolean = false;
+            let timeCount = 0;
+            const btnClass = document.querySelector(".btn");
+            const timeDivClass = document.querySelector(".time-div");
+            let timeStart;
+
+            btnClass.addEventListener("click",()=>{
+                btnBoolean = !btnBoolean;
+                console.log("btnBoolean = " + btnBoolean);
+                    if(btnBoolean == true){
+                        btnClass.textContent = "종료";
+                         timeStart = setInterval(()=>{
+                            timeDivClass.textContent = timeCount;
+                            timeCount++;
+                        },100);
+                       
+                    }
+                    else if(btnBoolean == false){
+                        btnClass.textContent = "시작";
+                        clearInterval(timeStart);
+                        timeCount = 0;
+                    }
+            
+            });
+
+        
+
+
+        });
+    </script>
+</body>
+</html>
