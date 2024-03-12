@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #output{
+            width:600px;
+            height:300px;
+            border: 4px solid #999;
+            position: relative;
+        }
+        #panel{
+            width: 500px;
+            height: 500px;
+            border: 5px solid black;
+        }
+        #fish{
+            position: absolute;
+            left: 50px;
+            top: 120px;
+
+        }
+        #nav{
+            margin-top: 20px;
+            text-align: center;
+            width: 600px;
+        }
+    </style>
+            <!-- 
+                물고기를 상자에 띄우고
+                물고기를 5초안에 최대한 클릭할 것
+                클릭한 횟수가 상자위에 출력될 것
+                초가 지나면 더 이상 클릭횟수 증가하지 않음. 
+                                                                --->
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+            let fishQuery = document.querySelector("#fish");
+            let h1Count = document.querySelector("#clickCount");
+            let $fish = window.getComputedStyle(fishQuery);
+            let fLeft = parseInt($fish.left);
+            let ftop = parseInt($fish.top);
+            let rightAndLeft = false;
+            let clickOnOff = false;
+            let clickCount = 0;
+            const moveLeft = 50;
+
+            let $ReStart = document.querySelector("#btnReStart");
+            let gameStart = true;
+            // console.log(true==fishQuery.getAttribute('src').indexOf("fish2"));
+            // console.log(true==fishQuery.getAttribute('src').indexOf("fish1"));
+            console.log(fishQuery.getAttribute('src').indexOf("fish1"));
+            console.log(fishQuery.getAttribute('src').indexOf("fish2"));
+            console.log(0 < fishQuery.getAttribute('src').indexOf("fish1"));
+            $ReStart.addEventListener('click',()=>{ 
+                if(gameStart){
+                    clickOnOff = !clickOnOff;
+                    gameStart = !gameStart;
+                let moveFish = setInterval(()=>{
+                let random  =  (Math.floor(Math.random() * (500 - 90 + 1) + 90));
+                
+
+                if(rightAndLeft){
+                    // console.log("left");
+                    if(fLeft <= 50 && 0 <fishQuery.getAttribute('src').indexOf("fish2") ){ //왼쪽범위가 넘었을경우
+                    rightAndLeft = !rightAndLeft;
+                    fLeft += moveLeft;
+                    fishQuery.style.left = fLeft + 'px';
+                    fishQuery.style.top = random + 'px';
+                    fishQuery.setAttribute('src','../../../images2/fish1.png');
+                    console.log("left > if");
+                }else{
+                        console.log("left > else");
+                        fLeft -= moveLeft;
+                        fishQuery.style.left = fLeft + 'px';
+                        fishQuery.style.top = random + 'px';
+                    }
+
+                }else if(!rightAndLeft){
+                    // console.log("right");
+                    if(fLeft >= 390 && 0 <fishQuery.getAttribute('src').indexOf("fish1")){ //오른쪽 범위가 넘었을 경우
+                    rightAndLeft = !rightAndLeft;
+                    fLeft += -moveLeft;
+                    fishQuery.style.left = fLeft + 'px';
+                    fishQuery.style.top = random + 'px';
+                    fishQuery.setAttribute('src','../../../images2/fish2.png');
+                    console.log("right");
+                }else{
+                    console.log("right else");
+                    fLeft += moveLeft;
+                    fishQuery.style.left = fLeft + 'px';
+                    fishQuery.style.top = random + 'px';
+
+                    }
+                }
+                // if((fLeft >= 390 && 0 <fishQuery.getAttribute('src').indexOf("fish1"))|| ftop >= 300){
+                //     rightAndLeft = false;
+                //     fLeft += -moveLeft;
+                //     fishQuery.style.left = fLeft + 'px';
+                //     // fishQuery.style.top = random + 'px';
+                //     fishQuery.setAttribute('src','../../../images2/fish2.png');
+                // }else if((fLeft <= 50 && 0 <fishQuery.getAttribute('src').indexOf("fish2")) || ftop >= 50){
+                //     rightAndLeft = true;
+                //     fLeft += moveLeft;
+                //     fishQuery.style.left = fLeft + 'px';
+                //     // fishQuery.style.top = random + 'px';
+                //     fishQuery.setAttribute('src','../../../images2/fish1.png');
+                    
+                // }
+                // else if(rightAndLeft && 0 <fishQuery.getAttribute('src').indexOf("fish2")){
+                //     fLeft += moveLeft;
+                //     fishQuery.style.left = fLeft + 'px';
+                //     // fishQuery.style.top =  random+ 'px';
+                    
+                // }else if(!rightAndLeft && 0 <fishQuery.getAttribute('src').indexOf("fish1")){
+                //     fLeft -= moveLeft;
+                //     fishQuery.style.left = fLeft + 'px';
+                //     // fishQuery.style.top = random + 'px';
+                // }
+            },500);
+
+
+            let a = fishQuery.addEventListener('click',()=>{
+                clickCount++;
+                if(clickOnOff)
+                h1Count.textContent = clickCount;
+            });
+            setTimeout(() => {
+                clickOnOff = !clickOnOff;
+                clickCount = 0;
+                h1Count.textContent = clickCount;
+                alert('end');
+                clearInterval(moveFish);
+                gameStart = !gameStart;
+            }, 50000);
+            }
+            });      
+
+        });
+    </script>
+</head>
+<body>
+    <div id="nav">
+        <h1 id="clickCount">카운트표시</h1>
+    </div>
+    <div id="panel">
+        <img src="../../../images2/fish1.png" id="fish">
+    </div>
+    <button id="btnReStart">시작하기</button>
+</body>
+</html>
+

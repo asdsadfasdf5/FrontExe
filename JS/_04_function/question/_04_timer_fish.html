@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #output{
+            width:600px;
+            height:300px;
+            border: 4px solid #999;
+            position: relative;
+        }
+        #bar{
+            position: absolute;
+            left: 50px;
+            top: 190px;
+            width: 500px;
+            height: 20px;
+            background-color: #f30;
+        }
+        #fish{
+            position: absolute;
+            left: 50px;
+            top: 120px;
+
+        }
+        #nav{
+            margin-top: 20px;
+            text-align: center;
+            width: 600px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="panel">
+        <img src="../../../images2/fish1.png" id="fish">
+        <div id="bar"></div>
+    </div>
+    <div id="nav">
+        <button id="btnMove">움직임</button>
+        <button id="btnStop">멈춰</button>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let fishQuery = document.querySelector("#fish");
+            let $fish = window.getComputedStyle(fishQuery);
+            let $btnstart = document.querySelector("#btnMove");
+            let $btnStop = document.querySelector("#btnStop");
+            let fLeft = parseInt($fish.left);
+            let rightAndLeft = false;
+
+            let startInterVal = null;
+            $btnstart.addEventListener("click",()=>{
+                startInterVal = setInterval(() => {
+                    if(fLeft >= 430){
+                    rightAndLeft = false;
+                    fLeft += -50;
+                    fishQuery.style.left = fLeft + 'px';
+                    fishQuery.setAttribute('src','../../../images2/fish2.png');
+                }else if(fLeft <= 50){
+                    rightAndLeft = true;
+                    fLeft += 50;
+                    fishQuery.style.left = fLeft + 'px';
+                    fishQuery.setAttribute('src','../../../images2/fish1.png');
+                    
+                }else if(rightAndLeft){
+                    fLeft += 50;
+                    fishQuery.style.left = fLeft + 'px';
+                    
+                }else if(!rightAndLeft){
+                    fLeft -= 50;
+                    fishQuery.style.left = fLeft + 'px';
+                }
+                }, 100);
+            
+            });
+
+            btnStop.addEventListener('click',()=>{
+                clearInterval(startInterVal);
+            })
+
+
+        });
+
+    </script>
+</body>
+</html>
+
+<!-- 
+move_fish에서 button을 2개 생성
+1개는 '시작' 버튼
+1개는 '멈춤' 버튼
+
+'시작' 버튼을 누르면 물고기가 자동으로 왕복 움직이도록
+'멈춤' 버튼을 누르면 물고기가 멈추도록 
+-->
