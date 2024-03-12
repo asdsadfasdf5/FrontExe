@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const array = []; // 배열
+       array.sample =10; //동적 요소 추가
+       console.log(array.sample); // 10
+       console.log(typeof array); // object
+       console.log(Array.isArray(array)); // true
+    console.log('');
+    
+    function b(){}; // fun , 일급 객체
+    b.sample = 10;
+    console.log(b.sample); // 10
+    console.log(typeof b); // function
+    console.log(Array.isArray(b)); // false
+    console.log('');
+
+    const c = 273;
+    c.sample = 10; // 일시적으로 객체타입으로 변경
+    console.log(c); // 273
+    console.log(c.sample); // undefined
+    console.log(typeof c); // Number
+
+
+
+
+    </script>
+</body>
+</html>
