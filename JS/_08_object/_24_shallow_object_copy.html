@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const pet= {
+        name : "BBoBBi",
+        age : 10,
+        color : 'white'
+       }
+
+       const star = pet;    // 참조값 복사 -> 얕은 복사
+       star.name = "star";
+       star.age = 5;
+       star.color = "black";
+
+       console.log(pet);
+       console.log(star);
+    </script>
+</body>
+</html>

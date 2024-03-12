@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            깊은 복사
+        */
+        const foodArray = ["milk", "bread"];
+        const foods = ['포도',...foodArray,"시거ㅏ",'칼국수']; // 전개 연산자를 이용해서 새로운 배열을 생성
+        // foodArray.push("ramen");
+        // foods.push('banana');
+
+        console.log(foodArray); //["milk", "bread","ramen"];
+        console.log(foods);   //["포도","milk", "bread","banana","시거ㅏ","칼국수"];
+    </script>
+</body>
+</html>
