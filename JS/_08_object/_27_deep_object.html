@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //객체의 깊은 복사
+
+        const pet = {
+            name : "BBOBBI",
+            age : 6,
+            color : "black"
+        };
+
+        const star = {
+            name : "BOB",
+            age : 110,
+            color : "white",
+            ...pet
+        };
+
+        console.log(pet);
+        console.log(star);
+    </script>
+</body>
+</html>
