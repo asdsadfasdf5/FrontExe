@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const i = 'hello';
+        console.log(i.indexOf("he")); // 0      string -> String
+        console.log(i.indexOf("ll")); // 2
+        console.log(i.indexOf("wow")); // -1
+
+        const j = [1,2,3];
+        console.log(j.indexOf(2));    // 1
+        console.log(j.indexOf(3));    // 2
+        console.log(j.indexOf(1000)); // -1
+
+        String.prototype.contain = function(data){
+            return this.indexOf(data) >= 0;
+        }
+
+        Array.prototype.contain = function(data){
+            return this.indexOf(data) >= 0;
+        }
+
+        const a = "hello";
+        console.log('he in hello :' , a.contain('he')  ); // he in hello : true
+        console.log('wow in hello :' , a.contain('wow')  ); // wow in hello : false
+
+        const b = [273,32,123,21,5];
+        console.log('273 in b :' , b.contain(273)  ); // 273 in b : true
+        console.log('12312123 in b :' , b.contain(12312123)  ); // 12312123 in b : false
+
+    </script>
+</body>
+</html>

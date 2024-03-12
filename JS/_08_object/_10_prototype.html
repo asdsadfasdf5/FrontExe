@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = new Number(10);
+        a,sample = 100;
+        // console.log(a.valueOf()); // 10
+        console.log(a.sample);  // 100
+        const b = new Number(200);
+        console.log(b.sample); // undefined
+
+        // Number객체 자료형 변수가 모두 공유하고 싶은 값은 prototype에 설정하면된다.
+        Number.prototype.pi = 3.14;
+        console.log(a.pi); // 3.14
+        console.log(b.pi); // 3.14
+
+        const i = 99;
+        console.log(i.pi); // number -> Number로 잠시 변경
+
+    </script>
+</body>
+</html>
