@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const i = 123.456789;
+
+        console.log(i.toFixed(2)); // 123.46
+        console.log(i.toFixed(3)); //123.457
+        console.log(i.toFixed(4)); //123.4568
+
+
+        const m = Number('korea');
+        console.log(m); //NaN
+        console.log(m == NaN); // false                 --- why?
+        console.log( Number.isNaN(m) ); //true
+        console.log('');
+
+        const n = 10 / 0;
+        console.log(n); // Infinity
+        const o = -10 / 0;
+        console.log(o); // -Infinity
+        console.log('');
+
+        console.log(Number.isFinite(n)); // false : 유한한지 확인 -> 유한하지 않음
+        console.log(Number.isFinite(o)); // false : 유한한지 확인 -> 유한하지 않음
+        console.log(Number.isFinite(1)); // true : 유한함
+        console.log( n === Infinity ); // true
+        console.log( o === -Infinity ); // ture
+        console.log('');
+
+        const stringA = `
+        줄 바
+        꿈
+        `;
+        const stringB = `    앞 뒤 공백         ㅇ       `
+        console.log(stringA); // 줄바꿈이 적용되어 출력
+
+        console.log( stringA.trim() ); // 개행문자가 사라짐 : 문자와 문자 사이는 해당하지 않음
+        console.log( stringB.trim() ); // 공백문자가 사라짐 : 문자와 문자 사이는 해당하지 않음
+
+    </script>
+</body>
+</html>
