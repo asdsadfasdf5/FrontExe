@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .banner1 {
+      width: 400px;
+      height: 200px;
+      top: 10px;
+      left: 100px;
+      position: absolute;
+      border: 3px solid red;
+      box-shadow: 10px 10px #ccc;
+    }
+  </style>
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let banner = function(selector, imageList, cb, set, speed){
+            let currentIndex = 1;
+
+        }
+        let timerID = null;
+        let speed = 1000;
+        let imageList = [
+            'logo_01.jpg', 'logo_02.jpg', 'logo_03.jpg' , 'logo_04.jpg', 'logo_05.jpg', 'logo_06.jpg',
+            'logo_07.jpg', 'logo_08.jpg'
+        ];
+
+        timerID = banner('#banner1',imageList,()=>speed);
+        document.addEventListener()
+    }
+  </script> -->
+  <body>
+    <img src="../../../images2/logo_01.jpg" alt="logo01" class="banner1" />
+
+    <script>
+      /*
+        타이머를 동작시켜서 logo_01.jpg~ logo_08로 교체하도록 만든다.
+        단, 방향키 상을 누르면 교체 속도가 빨라지고
+        방향키 하를 누르면 교체 속도가 느려지게 된다.
+        */
+      document.addEventListener("DOMContentLoaded", function () {
+        let changeImg = document.querySelector(".banner1");
+        let second = 1001;
+        let imgCount = 1;
+        let imgSpeed = 100;
+
+        let timer = setInterval(img, second);
+
+        window.addEventListener("keydown", (e) => {
+          if (!(second <= 100)) {
+            if (e.key.indexOf("ArrowDown") > -1) {
+              second -= +imgSpeed;
+              clearInterval(timer);
+              timer = setInterval(img,second);
+            } else if (e.key == "ArrowUp") {
+                second += +imgSpeed;
+                clearInterval(timer);
+                timer = setInterval(img,second);
+            }else if(e.key == "Escape"){
+                clearInterval(timer);
+            }
+          } else {
+            second += 100;
+          }
+        });
+
+       
+
+        function img() {
+          if (imgCount < 9) {
+            changeImg.setAttribute("src",`../../../images2/logo_0${imgCount}.jpg`);
+          } else {
+            imgCount = 0;
+          }
+          imgCount++;
+        }
+      });
+    </script>
+  </body>
+</html>
