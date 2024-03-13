@@ -4,19 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        const foodArray = ['우유', '식빵'];
+        const foods = ['포도', ...foodArray, '사과', '칼국수'];        // 전개 연산자를 사용해서 새로운 배열을 생성
+
+        console.log(foodArray);
+        console.log(foods);
+    </script>
 </head>
 <body>
-    <script>
-        /*
-            깊은 복사
-        */
-        const foodArray = ["milk", "bread"];
-        const foods = ['포도',...foodArray,"시거ㅏ",'칼국수']; // 전개 연산자를 이용해서 새로운 배열을 생성
-        // foodArray.push("ramen");
-        // foods.push('banana');
-
-        console.log(foodArray); //["milk", "bread","ramen"];
-        console.log(foods);   //["포도","milk", "bread","banana","시거ㅏ","칼국수"];
-    </script>
+    
 </body>
 </html>

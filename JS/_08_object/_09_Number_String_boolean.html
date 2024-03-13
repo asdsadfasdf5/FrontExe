@@ -4,30 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        const a = new Number(273);      // 객체 타입 Number
+        a.sample = 10;
+        console.log(a);                 // Number
+        console.log(a.sample);          // 10
+        console.log(typeof a);          // object
+        console.log(a + 100);           // 373
+        console.log(a.valueOf())        // 273
+        console.log('');
+
+        const b = Number(273);          // 자료형 변환, 기본 타입 number
+        console.log(b);
+        console.log(typeof b);
+        console.log('');
+
+        const c = '안녕하세요';           // 기본 타입, string, 객체x
+        console.log(c);
+        console.log(typeof c);
+        console.log(c.length);            // 일시적으로 string -> String 객체타입으로 변환
+        console.log('');
+    </script>
 </head>
 <body>
-    <script>
-        const a = new Number(273); // 객체타입 Number
-        a.sample = 10;
-        console.log(a); // Number{ sample : 10 }
-        console.log(a.sample); // 10
-        console.log(typeof a); // pbject
-        console.log(a + 100); // 373
-        console.log(a.valueOf); // 273
-
-
-        const b = Number(273); // 자료형 변환, 기본 타입 number
-        console.log(b); // 273
-        console.log(typeof b); // number
-        
-        const c = 'hi'; // 기본타입, string, 객체 X
-        console.log(c); // hi
-        console.log(typeof c); // string
-        console.log(c.length); // 일시적으로 string -> String 객체타입으로 변환
-        console.log(c.bbb = 'rt'); // 일시적으로 객체 타입 'Number'로 변환
-        console.log(c.bbb); // 원래 number
-
-        
-    </script>
+    
 </body>
 </html>

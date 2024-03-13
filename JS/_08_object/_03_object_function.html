@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
     <script>
-      //객체 생성
-      const pet = {
-        //속성 (property)
-        name: "c",
-        eat: (food) => {
-          console.log(this.name + "는" + food + "를 먹습니다.");
+        const pet = {
+            name: '구름',
+            eat: function(food){
+                console.log(this.name + '은 ' + food + '을 먹습니다.');
+            }
         }
-      };
-      pet.eat('bob'); // c는 bob를 먹습니다.
-      pet.eat('gug'); // c는 gug를 먹습니다.
-      pet.eat('mul'); // c는 mul를 먹습니다.
 
-      
+        pet.eat('밥');
+        pet.eat('미역국');
+        pet.eat('라면');
     </script>
-  </body>
+</head>
+<body>
+    
+</body>
 </html>

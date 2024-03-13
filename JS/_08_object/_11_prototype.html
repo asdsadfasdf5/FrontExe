@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        Number.prototype.power = function(n=2){
+            return this.valueOf() ** n;
+        }
+
+        const a = 12;
+        console.log('a.power():' + a.power());
+        console.log('a.power(3):' + a.power(3));
+        console.log('a.power(4):' + a.power(4));
+    </script>
 </head>
 <body>
-    <script>
-    Number.prototype.power = function(n=2){
-        return this.valueOf() ** n;
-    }
-    const a = 12;
-    console.log( 'a.power() : '  + a.power() ); // 144  기본은 n=2이니까 제곱 값 설정에따라 제곱이 다르게 변경된다.
-    console.log( 'a.power(3) : ' + a.power(3) ); //1728
-    console.log( 'a.power(4) : ' + a.power(4) );  //20736
-    </script>
+    
 </body>
 </html>

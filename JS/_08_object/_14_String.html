@@ -29,6 +29,21 @@
         console.log(input);
 
         input = input.map((line) => line.split(','))
+
+        // map을 사용해서 각 배열 요소의 공백 문자 제거
+        input = input.map(function(line){
+            return line = line.map(function(elem){
+                return elem.trim();
+            });
+        });
+
+        console.log(input);
+        const jsonStr = JSON.stringify(input);
+        console.log(jsonStr);
+
+        /* 
+        // forEach를 사용해서 각 배열 요소의 공백 문자 제거
+
         let newInput = [];
         input.forEach(function(line){
             let temp = [];
@@ -37,12 +52,11 @@
                 temp.push(elem);
             });
             newInput.push(temp)
-        });
-        
+        });        
         console.log(newInput);
-
         const jsonStr = JSON.stringify(newInput);
         console.log(jsonStr);
+        */
     </script>
 </head>
 
