@@ -1,22 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .tab-menu {
+            list-style: none;
+            height: 80px;
+            display: flex;
+        }
 
+        .tab-menu li {
+            width: 99px;
+            height: 40px;
+            background-position-y: 0;
+            text-indent: -1000px;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+
+        .tab-menu li.menuitem1 {
+            background-image: url('../../../images2/newbtn.bar.1.png');
+        }
+
+        .tab-menu li.menuitem2 {
+            background-image: url('../../../images2/newbtn.bar.2.png');
+        }
+
+        .tab-menu li.menuitem3 {
+            background-image: url('../../../images2/newbtn.bar.3.png');
+        }
+
+        .tab-menu li.menuitem4 {
+            background-image: url('../../../images2/newbtn.bar.4.png');
+        }
+
+        .tab-menu li.menuitem5 {
+            background-image: url('../../../images2/newbtn.bar.5.png');
+        }
+
+        .tab-contents {
+            position: relative;
+            left: 10px;
+            top: 10px;
+            width: 780px;
+            height: 340px;
+            overflow: hidden;
+            /* background: url('../../../images2/content_google.png') no-repeat; */
+            background: url('../../../images2/content_bg.png') no-repeat;
+        }
+
+        .tab-contents .content {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            display: none;
+        }
+
+        .tab-contents .content.select {
+            display: block;
+        }
     </style>
+    <script>
+        let $tabMenu = null;
+        let $menuItems = null;
+        let $tabContent = null;
+        let $tabPanels = null;
+        let $selectMenuItem = null; // 선택한 탭
+        let $selectPanel = null;    // 탭에 의해 선택된 패널
+
+        const init = function () {
+            $tabMenu = document.querySelector('#tabMenu1');
+            $menuItems = document.querySelectorAll('#tabMenu1 li');
+            $tabContent = document.querySelector('.tab-contents');
+            $tabPanels = document.querySelectorAll('.tab-contents .content');
+        }
+
+        const initEvent = function () {
+            for (let i = 0; i < $menuItems.length; i++) {
+                const $menuItem = $menuItems[i];
+                $menuItem.addEventListener('click', function (e) {
+                    const idx = i;
+                    // 선택한 버튼에 동적으로 select를 추가한다.
+                    setSelectItem(this);    // e.currentTarget === this
+                    // 버튼과 매핑된 패널의 이미지 추가(사용자 정의 이벤트 전송)
+                    sendTabSelectEvent($tabContent, idx);
+                });
+            }
+
+            // tabSelect이벤트 발생시 호출할 콜백 함수 등록
+            $tabContent.addEventListener('tabSelect', function(e){
+                const idx = e.detail.idx;
+
+                // 이벤트 수신 시 패널의 이미지 교체 함수
+                setSelectPanel(idx);
+            });
+        }
+
+        const setSelectItem = function ($item) {
+            if ($selectMenuItem)
+                $selectMenuItem.classList.remove('select');
+
+            $item.classList.add('select');
+            $selectMenuItem = $item;
+        }
+
+        const sendTabSelectEvent = function ($receiver, idx) {
+            /*
+            [사용자 정의 이벤트]
+            'tabSelect' 이벤트를 생성한다.
+            생성 후, idx값을 포함해서 $receiver에 전달한다.
+            */
+            const event = new CustomEvent('tabSelect', {detail:{
+                idx : idx
+            }});
+
+            // 이벤트 전달
+            $receiver.dispatchEvent(event);
+        }
+
+        const setSelectPanel = function(index){
+            if($selectPanel)
+                $selectPanel.classList.remove('select');
+
+            $selectPanel = $tabPanels[index];
+            $selectPanel.classList.add('select');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+            initEvent();
+        });
+    </script>
 </head>
+
 <body>
     <ul class="tab-menu" id="tabMenu1">
         <li class="menuitem1">google</li>
-        <li class="menuitem1">facebook</li>
-        <li class="menuitem1">printerest</li>
-        <li class="menuitem1">twitter</li>
-        <li class="menuitem1">path</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">path</li>
     </ul>
-    <div class="tab=content">
+
+    <div class="tab-contents">
         <div class="content">
             <img src="../../../images2/content_google.png">
         </div>
@@ -33,8 +171,115 @@
             <img src="../../../images2/content_path.png">
         </div>
     </div>
-    <script>
 
+
+
+
+
+<!-- 
+    <script>
+        let menuItem = document.querySelectorAll(".tab-menu");
+        let tabContents = document.querySelectorAll(".tab-contents");
+        
+
+
+
+            // menuItem[0].children[0].addEventListener("click",function(){
+            //     tabContents[0].children[0].style.display = "block";
+            //     console.log(tabContents[0].children[0]);
+            //     for (let i = 0; i < tabContents[0].children.length; i++) {
+            //         if(i==0){continue;}else
+            //         tabContents[0].children[i].style.display = "none";
+                   
+            //     }
+
+            // });
+            // menuItem[0].children[1].addEventListener("click",function(){
+            //     tabContents[0].children[1].style.display = "block";
+            //     console.log(tabContents[0].children[1]);
+            //     for (let i = 0; i < tabContents[0].children.length; i++) {
+            //         if(i==1){continue;}else
+            //         tabContents[0].children[i].style.display = "none";
+                   
+            //     }
+                
+            // });
+            // menuItem[0].children[2].addEventListener("click",function(){
+            //     tabContents[0].children[2].style.display = "block";
+            //     console.log(tabContents[0].children[2]);
+            //     for (let i = 0; i < tabContents[0].children.length; i++) {
+            //         if(i==2){continue;}else
+            //         tabContents[0].children[i].style.display = "none";
+                   
+            //     }
+                
+            // });
+            // menuItem[0].children[3].addEventListener("click",function(){
+            //     tabContents[0].children[3].style.display = "block";
+            //     console.log(tabContents[0].children[3]);
+            //     for (let i = 0; i < tabContents[0].children.length; i++) {
+            //         if(i==3){continue;}else
+            //         tabContents[0].children[i].style.display = "none";
+                   
+            //     }
+                
+            // });
+            // menuItem[0].children[4].addEventListener("click",function(){
+            //     tabContents[0].children[4].style.display = "block";
+            //     console.log(tabContents[0].children[4]);
+            //     for (let i = 0; i < tabContents[0].children.length; i++) {
+            //         if(i==4){continue;}else
+            //         tabContents[0].children[i].style.display = "none";
+                   
+            //     }
+
+            // });
+
+
+// ------------------------- 같은 코드로 사용중이여서 줄여봄
+
+            
+            menuItem[0].addEventListener("click",function(e){
+
+                if(e.target.tagName == "LI"){
+                if(e.srcElement.innerText.indexOf("google") > -1){
+                    console.log("googl!");
+                    i = 0;
+                    displayChange(i);
+                }else if(e.srcElement.innerText.indexOf("facebook") > -1){
+                    console.log("face!");
+                    i = 1;
+                    displayChange(i);
+                }else if(e.srcElement.innerText.indexOf("pinterest") > -1){
+                    console.log("pinterest!");
+                    i = 2;
+                    displayChange(i);
+                }else if(e.srcElement.innerText.indexOf("twitter") > -1){
+                    console.log("tw!");
+                    i = 3;
+                    displayChange(i);
+                }else if(e.srcElement.innerText.indexOf("path") > -1){
+                    console.log("path!");
+                    i = 4;
+                    displayChange(i);
+                }    
+            }
+
+            });
+
+            function displayChange(index){
+                for (i = 0; i < tabContents[0].children.length; i++) {
+                    if((i == index)){
+                        tabContents[0].children[index].style.display = "block";
+                    }else{
+                        tabContents[0].children[i].style.display = "none";
+                    }
+                }
+            }
+            
     </script>
+
+-->
 </body>
+
 </html>
